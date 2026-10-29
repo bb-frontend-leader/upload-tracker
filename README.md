@@ -1,4 +1,4 @@
-# Upload Tracker
+# 📤 Upload Tracker
 
 Visor de la bitácora que genera WinSCP al subir archivos a un servidor. Cuando el servidor falla
 y se restaura un backup, sirve para recordar qué se subió en ese tiempo: muestra los registros en
@@ -8,11 +8,11 @@ volviste a subir.
 Todo corre en el navegador: el CSV nunca sale de tu equipo. El progreso (registros cargados y
 marcas) se guarda en `localStorage`, así que sobrevive a recargar la página.
 
-## Stack
+## 🧱 Stack
 
 React 19 · Vite · TypeScript · Tailwind CSS v4 · shadcn/ui (Base UI) con estilo brutalista.
 
-## Desarrollo
+## 🛠️ Desarrollo
 
 ```bash
 npm install
@@ -21,7 +21,7 @@ npm run build    # typecheck + build de producción en dist/
 npm run lint
 ```
 
-## Flujo de uso
+## 🔄 Flujo de uso
 
 WinSCP registra las subidas en XML y esta página lee CSV, así que el flujo completo es:
 
@@ -38,13 +38,13 @@ WinSCP registra las subidas en XML y esta página lee CSV, así que el flujo com
    cabecera marcan en bloque lo que estás viendo.
 6. **Exportar:** **Exportar pendientes** descarga un CSV con lo que falta, en el mismo formato.
 
-### El ejecutable
+### ⚙️ El ejecutable
 
 La página sirve el conversor desde `public/download/BitacoraWinSCP.exe` (URL
 `/download/BitacoraWinSCP.exe`). El binario no es parte del código fuente: hay que copiarlo a esa
-carpeta antes de compilar o desplegar. Sin el archivo, el botón de descarga no funciona.
+carpeta antes de compilar o desplegar. ⚠️ Sin el archivo, el botón de descarga no funciona.
 
-## Formato del CSV
+## 📄 Formato del CSV
 
 Separado por `;` (también acepta `,`), con BOM UTF-8 y tamaños con coma decimal. Columnas
 requeridas:
@@ -57,7 +57,7 @@ Fecha;Servidor;ArchivoLocal;RutaRemota;TamanoKB;Exitoso
 Un registro se identifica por un hash de fecha + servidor + ruta local + ruta remota; es lo que
 permite recordar las marcas entre cargas.
 
-## Estructura
+## 🗂️ Estructura
 
 ```
 public/download/          ejecutable BitacoraWinSCP.exe (se sirve tal cual)
@@ -68,7 +68,3 @@ src/hooks/use-tracker.ts  estado + persistencia en localStorage
 src/components/           tabla, filtros, estadísticas, ayuda del conversor
 src/components/ui/        componentes shadcn (restilizados a brutalismo)
 ```
-
-## Repositorio
-
-<https://github.com/bb-frontend-leader/upload-tracker>
