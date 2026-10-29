@@ -1,0 +1,87 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/space-grotesk";
+@import "@fontsource-variable/jetbrains-mono";
+
+@theme inline {
+  --font-heading: 'Space Grotesk Variable', sans-serif;
+  --font-sans: 'Space Grotesk Variable', sans-serif;
+  --font-mono: 'JetBrains Mono Variable', ui-monospace, monospace;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-success: var(--success);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+  --radius-2xl: 0px;
+  --radius-3xl: 0px;
+  --radius-4xl: 0px;
+
+  --shadow-brutal: 4px 4px 0 0 var(--foreground);
+  --shadow-brutal-sm: 2px 2px 0 0 var(--foreground);
+  --shadow-brutal-lg: 8px 8px 0 0 var(--foreground);
+}
+
+:root {
+  --radius: 0px;
+  --background: #e6e1ff;
+  --foreground: #15123a;
+  --card: #ffffff;
+  --card-foreground: #15123a;
+  --popover: #ffffff;
+  --popover-foreground: #15123a;
+  --primary: #15123a;
+  --primary-foreground: #ff6ec7;
+  --secondary: #ffa62b;
+  --secondary-foreground: #15123a;
+  --muted: #cdc6f5;
+  --muted-foreground: #46407a;
+  --accent: #7ae7ff;
+  --accent-foreground: #15123a;
+  --destructive: #ff4d6d;
+  --success: #4be3a0;
+  --border: #15123a;
+  --input: #15123a;
+  --ring: #15123a;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply font-sans;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    background-image:
+      linear-gradient(color-mix(in oklab, var(--foreground) 12%, transparent) 1px, transparent 1px),
+      linear-gradient(90deg, color-mix(in oklab, var(--foreground) 12%, transparent) 1px, transparent 1px);
+    background-size: 32px 32px;
+    background-attachment: fixed;
+  }
+  ::selection {
+    background: var(--accent);
+    color: var(--foreground);
+  }
+}
